@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s  # Intervalo de scraping global
+  scrape_timeout: 10s   # Tiempo máximo permitido para scraping
+
+scrape_configs:
+  - job_name: 'custom_exporter'
+    scrape_interval: 15s  # Intervalo de scraping para este job
+    scrape_timeout: 10s   # Tiempo máximo permitido para este job
+    static_configs:
+      - targets: ['custom_exporter:8080']

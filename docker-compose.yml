@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9092:9090"
+    volumes:
+      - ./prometheus_data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - localprom
+
+  custom_exporter:
+    build:
+      context: ./prometheus-exporter
+    ports:
+      - "8080:8080"
+    container_name: custom_exporter
+    networks:
+      - localprom
+
+networks:
+  localprom:
+    driver: bridge

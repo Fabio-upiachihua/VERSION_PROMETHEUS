@@ -1,0 +1,10 @@
+ priemro 
+ ------------------
+ levantar ´node js
+ docker-compose up --build
+ segundo 
+ -------------------------
+docker-compose up -d     
+ tercero 
+ ---------------------------
+ docker-compose down    
